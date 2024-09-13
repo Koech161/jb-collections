@@ -9,7 +9,7 @@ const Collection = () => {
         navigate(`/collection/${id}`)
     }
   return (
-    <div className='container text-center'>
+    <div className='container text-center' style={{marginTop:'100px'}}>
         <h1>ALL COLLECTIONS</h1>
       <div className='cards row center  border-light'>
             {products.map(product=>(

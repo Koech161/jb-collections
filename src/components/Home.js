@@ -18,7 +18,7 @@ const Home = () => {
         <div className='card col-md-4 heading border-light'>
             <h4 className='fw-bold'>  OUR BESTSELLERS</h4>
             <h1 className='fw-bold'>Latest Arrivals</h1>
-            <h4>SHOP NOW</h4>
+            <button className='btn bg-info rounded-pill'>SHOP NOW</button>
         </div>
         <div className='card  p-1 col-md-4  border-light'>
             <img className='img-fluid' src={assets.hero_img} alt='header' />

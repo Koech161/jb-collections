@@ -11,11 +11,11 @@ const CollectionDetails = () => {
         return <p>Product not found</p>
     }
   return (
-    <div className='container'>
+    <div className='container' style={{marginTop:'130px'}}>
       <div className='row'>
         <div className='cols-md-4'>
             <img src={product.image} alt={product.name} style={{height:'100px', width:'100px'}}/>
-            <img src={product.image} alt={product.name} style={{width:'350px'}}/>
+            <img className='img-fluid' src={product.image} alt={product.name} style={{width:'350px'}}/>
             </div>
             <div className='col-md-8'>
             <div className='card p-3'>
@@ -38,7 +38,7 @@ const CollectionDetails = () => {
                 ))}
                 </div>
                
-                <button className='btn bg-dark btn-light text-light btn-secondary' type='submit'>ADD TO CART</button>
+                <button className='btn  rounded-pill bg-dark btn-light text-light  ' type='submit'>ADD TO CART</button>
             </div>
             </div>
             <div>

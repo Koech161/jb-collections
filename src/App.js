@@ -4,6 +4,7 @@ import Collection from './components/Collection';
 import Home from './components/Home';
 import { Navbar } from './components/Navbar';
 import CollectionDetails from './components/CollectionDetails';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path='/collection' element={<Collection/>}/>
           <Route path='/collection/:id' element={<CollectionDetails/>}/>
         </Routes>
+        <Footer />
       </Router>
      
      
