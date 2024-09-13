@@ -1,0 +1,26 @@
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import './App.css';
+import Collection from './components/Collection';
+import Home from './components/Home';
+import { Navbar } from './components/Navbar';
+import CollectionDetails from './components/CollectionDetails';
+
+
+function App() {
+  return (
+    <div className="">
+      <Router>
+      <Navbar/>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/collection' element={<Collection/>}/>
+          <Route path='/collection/:id' element={<CollectionDetails/>}/>
+        </Routes>
+      </Router>
+     
+     
+    </div>
+  );
+}
+
+export default App;

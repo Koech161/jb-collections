@@ -1,0 +1,39 @@
+.hero-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    min-height: 400px;
+}
+.heading{
+    padding: 8px 15px;
+    margin-top: 40px;
+}
+.card-content{
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.card-img-top{
+    animation: transform 0.3s ease infinite;
+}
+.card-img-top:hover{
+    transform: scale(1.05);
+}
+.cards{
+    justify-content: center;
+    gap: 20px;
+    cursor: pointer;
+}
+
+/* .............................navbar ..................... */
+.profile-icon{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   gap: 20px;
+  
+}
+.nav-item {    
+    text-decoration: none;
+    font-size: 20px;
+}
