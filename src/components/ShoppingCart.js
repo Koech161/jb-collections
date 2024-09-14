@@ -1,31 +1,42 @@
-import React from 'react'
-import { assets, products } from '../assets/assets'
+import React, { useState, useEffect } from 'react';
+import { assets } from '../assets/assets';
 
 const ShoppingCart = () => {
-  const price = products.filter(product => product.price === 140)
-  console.log(price);
-  
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  const calculateTotal = () => {
+    const subtotal = cart.reduce((total, item) => total + (item.price || 0), 0);
+    const discount = subtotal * 0.1; // 10% off
+    return subtotal - discount;
+  };
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   return (
-    <div className='text-center' style={{marginTop: '200px'}}>
+    <div className='text-center' style={{ marginTop: '200px' }}>
       <h1>Checkout</h1>
       <div>
-        <p>price:</p>
-        <p> 10% off:</p>
-        <h5>Total cost:</h5>
+        <p>Price: ${cart.reduce((total, item) => total + (item.price || 0), 0).toFixed(2)}</p>
+        <p>10% off: ${(cart.reduce((total, item) => total + (item.price || 0), 0) * 0.1).toFixed(2)}</p>
+        <h5>Total cost: ${calculateTotal().toFixed(2)}</h5>
       </div>
       <div>
-        <h3>Payments method</h3>
+        <h3>Payment method</h3>
         <select>
-        <option>Payment on delivery</option>
-        <option>Pay with Razorpay </option>
-        <option>Pay with Stripe</option>
+          <option>Payment on delivery</option>
+          <option>Pay with Razorpay</option>
+          <option>Pay with Stripe</option>
         </select>
-        <img src={assets.razorpay_logo} alt=''/>
-        <img src={assets.stripe_logo} alt=''/>
-        </div>
+        <img src={assets.razorpay_logo} alt='Razorpay' />
+        <img src={assets.stripe_logo} alt='Stripe' />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default ShoppingCart
+export default ShoppingCart;

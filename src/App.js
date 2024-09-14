@@ -6,9 +6,22 @@ import { Navbar } from './components/Navbar';
 import CollectionDetails from './components/CollectionDetails';
 import Footer from './components/Footer';
 import ShoppingCart from './components/ShoppingCart';
+import { useState } from 'react';
 
 
 function App() {
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem('cart')
+    return savedCart ? JSON.parse(savedCart) : []
+  })
+  
+  const addToCart = (product, size) =>{
+    setCart((prevCart) => {
+      const updatedCart = [...prevCart, {...product, selectedSize:size}]
+      localStorage.setItem('cart',JSON.stringify(updatedCart))
+      return updatedCart
+    })
+  }
   return (
     <div className="">
       <Router>
@@ -16,7 +29,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/collection' element={<Collection/>}/>
-          <Route path='/collection/:id' element={<CollectionDetails/>}/>
+          <Route path='/collection/:id' element={<CollectionDetails addToCart={addToCart}/>}/>
           <Route path='/cart' element={<ShoppingCart/>}/>
         </Routes>
         <Footer />
