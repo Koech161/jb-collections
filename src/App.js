@@ -7,6 +7,8 @@ import CollectionDetails from './components/CollectionDetails';
 import Footer from './components/Footer';
 import ShoppingCart from './components/ShoppingCart';
 import { useState } from 'react';
+import About from './components/About';
+import Contact from './components/Contact';
 
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/collection' element={<Collection/>}/>
+          <Route path='/about' element={<About/>} />
+          <Route path='/contact' element={<Contact/>} />
           <Route path='/collection/:id' element={<CollectionDetails addToCart={addToCart}/>}/>
           <Route path='/cart' element={<ShoppingCart/>}/>
         </Routes>

@@ -26,13 +26,13 @@ export const Navbar = () => {
                     </li>
                     </Link>
                    
-                    <Link className='nav-item' to='/'>
+                    <Link className='nav-item' to='/about'>
                     <li className='nav-link'>
                      <FaUserAlt/>   About
                     </li>
                     </Link>
                    
-                    <Link className='nav-item' to='/'>
+                    <Link className='nav-item' to='/contact'>
                     <li className='nav-link'>
                       <FaPhoneSlash/>  Contact
                     </li>
