@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { assets, products } from '../assets/assets'
 import { useNavigate, useParams } from 'react-router-dom'
+import { useCart } from './CartContext'
 
-const CollectionDetails = ({addToCart}) => {
+const CollectionDetails = () => {
+  const {addToCart} = useCart()
     const {id} = useParams()
     const navigate = useNavigate()
     const product = products.find(pro => pro._id === id)

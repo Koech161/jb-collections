@@ -6,26 +6,16 @@ import { Navbar } from './components/Navbar';
 import CollectionDetails from './components/CollectionDetails';
 import Footer from './components/Footer';
 import ShoppingCart from './components/ShoppingCart';
-import { useState } from 'react';
 import About from './components/About';
 import Contact from './components/Contact';
+import { CartProvider } from './components/CartContext';
 
 
 function App() {
-  const [cart, setCart] = useState(() => {
-    const savedCart = localStorage.getItem('cart')
-    return savedCart ? JSON.parse(savedCart) : []
-  })
-  
-  const addToCart = (product, size) =>{
-    setCart((prevCart) => {
-      const updatedCart = [...prevCart, {...product, selectedSize:size}]
-      localStorage.setItem('cart',JSON.stringify(updatedCart))
-      return updatedCart
-    })
-  }
+ 
   return (
     <div className="">
+      <CartProvider>
       <Router>
       <Navbar/>
         <Routes>
@@ -33,12 +23,12 @@ function App() {
           <Route path='/collection' element={<Collection/>}/>
           <Route path='/about' element={<About/>} />
           <Route path='/contact' element={<Contact/>} />
-          <Route path='/collection/:id' element={<CollectionDetails addToCart={addToCart}/>}/>
+          <Route path='/collection/:id' element={<CollectionDetails />}/>
           <Route path='/cart' element={<ShoppingCart/>}/>
         </Routes>
         <Footer />
       </Router>
-     
+      </CartProvider>
      
     </div>
   );

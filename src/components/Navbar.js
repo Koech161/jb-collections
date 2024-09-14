@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom'
 import { FaCloudsmith, FaHome, FaUserAlt } from 'react-icons/fa'
 import '../style/Home.css'
 import { FaPhoneSlash } from 'react-icons/fa6'
+import { useCart } from './CartContext'
 export const Navbar = () => {
+  const {getItemCount} = useCart()
   return (
     <nav className='navbar navbar-expand-lg navbar-light bg-light fixed-top'>
         <div className='container'>
@@ -49,7 +51,13 @@ export const Navbar = () => {
                </div>
               
                 <Link to='/cart'>
+                <div className='cart-icon'>
                 <img src={assets.cart_icon} alt='' style={{width:'20px'}}/>
+                {getItemCount() > 0 && (
+                  <span className='cart-count'>{getItemCount()}</span>
+                )}
+
+                </div>
                 </Link>
               
             </div>
