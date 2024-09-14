@@ -4,7 +4,7 @@ import { assets } from '../assets/assets';
 
 const About = () => {
   return (
-    <div className="container my-5">
+    <div className="container my-5" style={{marginTop:'120px'}}>
       <div className="text-center">
         <div className='row align-items-center'>
         <img src={assets.about_img} alt='about Us' className="img-fluid mb-4 col-md-6"/>
