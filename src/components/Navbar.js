@@ -48,9 +48,9 @@ export const Navbar = () => {
                <img src={assets.profile_icon} alt='' style={{width:'20px'}}/>
                </div>
               
-                <div>
+                <Link to='/cart'>
                 <img src={assets.cart_icon} alt='' style={{width:'20px'}}/>
-                </div>
+                </Link>
               
             </div>
             <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>

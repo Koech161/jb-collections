@@ -5,9 +5,11 @@ import { useNavigate } from 'react-router-dom'
 const Home = () => {
     const navigate = useNavigate()
   const best_seller = products.filter(product => product.bestseller === true)
-   console.log(best_seller);
-   
   
+   
+  const handleclick = () =>{
+    navigate('/collection')
+  }
     
    const handledetails = (id) =>{
        navigate(`/collection/${id}`)
@@ -18,9 +20,9 @@ const Home = () => {
         <div className='card col-md-4 heading border-light'>
             <h4 className='fw-bold'>  OUR BESTSELLERS</h4>
             <h1 className='fw-bold'>Latest Arrivals</h1>
-            <button className='btn bg-info rounded-pill'>SHOP NOW</button>
+            <button className='btn bg-info rounded-pill' onClick={handleclick}>SHOP NOW</button>
         </div>
-        <div className='card  p-1 col-md-4  border-light'>
+        <div className='card  p-1 col-md-4 border-light'>
             <img className='img-fluid' src={assets.hero_img} alt='header' />
         </div>
        </div>
@@ -29,7 +31,7 @@ const Home = () => {
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem<br></br> Ipsum has been the.</p>
         <div className='cards row center  border-light'>
             {products.slice(3,15).map(product=>(
-                <div key={product._id} className='card text-center  mb-5 p-1 border-light shadow-sm' style={{width: '230px',gap: '20px'}} onClick={()=> handledetails(product._id)}>
+                <div key={product._id} className='card text-center product  mb-5 p-1 border-light shadow-sm' style={{width: '230px',gap: '20px'}} onClick={()=> handledetails(product._id)}>
                     <img className='img-fluid card-img-top' src={product.image} alt={product.name} />
                     <p>{product.name}</p>
                     <p>${product.price}</p>
@@ -43,7 +45,7 @@ const Home = () => {
         Ipsum has been the.</p>
         <div className='cards row border-light'>
             {best_seller.map(bestsell =>(
-                 <div key={bestsell._id} className=' card mb-4 p-1 border-light shadow-sm' style={{width: '230px',gap: '20px'}} onClick={()=> handledetails(bestsell._id)}>
+                 <div key={bestsell._id} className=' card mb-4 product  p-1 border-light shadow-sm' style={{width: '230px',gap: '20px'}} onClick={()=> handledetails(bestsell._id)}>
                  <img className='img-fluid card-img-top' src={bestsell.image} alt={bestsell.name} />
                  <p>{bestsell.name}</p>
                  <p>${bestsell.price}</p>
@@ -69,7 +71,7 @@ const Home = () => {
         </div>
        </div>
        <div className='subscribe'>
-        <h1>Subscribe now & get 20% off</h1>
+        <h1>Subscribe now & get 10% off</h1>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
         <input type='email' placeholder='Enter Your email' 
         className='mb-4'/>

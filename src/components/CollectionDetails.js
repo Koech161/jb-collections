@@ -1,17 +1,21 @@
 import React from 'react'
 import { assets, products } from '../assets/assets'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const CollectionDetails = () => {
     const {id} = useParams()
+    const navigate = useNavigate()
     const product = products.find(pro => pro._id === id)
   
-
+    const handlclick = () => {
+      navigate('/collection')
+    }
     if (!product){
         return <p>Product not found</p>
     }
   return (
     <div className='container' style={{marginTop:'130px'}}>
+       <button className='btn btn-light bg-info rounded-pill ' onClick={handlclick}>{'<'} {'<'} Back</button>
       <div className='row'>
         <div className='cols-md-4'>
             <img src={product.image} alt={product.name} style={{height:'100px', width:'100px'}}/>

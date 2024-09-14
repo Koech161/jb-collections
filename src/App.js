@@ -5,6 +5,7 @@ import Home from './components/Home';
 import { Navbar } from './components/Navbar';
 import CollectionDetails from './components/CollectionDetails';
 import Footer from './components/Footer';
+import ShoppingCart from './components/ShoppingCart';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/collection' element={<Collection/>}/>
           <Route path='/collection/:id' element={<CollectionDetails/>}/>
+          <Route path='/cart' element={<ShoppingCart/>}/>
         </Routes>
         <Footer />
       </Router>
